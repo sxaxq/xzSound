@@ -7,6 +7,8 @@ int main()
 {
 	SetConsoleTitle(L"Bebra Sound");
 
+	SoundPad::LoadSound();
+
 	while (true)
 	{
 		cout << "1 - Add sound" << endl;
@@ -29,6 +31,7 @@ int main()
 			buffer->loadFromFile(sound_file);
 			sf::Sound* sound = new sf::Sound;
 			sound->setBuffer(*buffer);
+			SoundPad::SaveSound(sound_name, sound_file);
 			SoundPad::AddSound(sound_name, sound);
 		}
 		    break;

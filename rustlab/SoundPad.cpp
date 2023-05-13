@@ -28,11 +28,46 @@ namespace SoundPad
 		{
 			os << "Sound: " << it->first << endl;
 		}
+		sf::sleep(sf::seconds(5.0f));
 	}
 
 	void DeleteSound(string sound_name)
 	{
 		smap.erase(sound_name);
 		os << "Sound " << sound_name << " delete" << endl;
+	}
+
+	void LoadSound()
+	{
+		fstream file("sounds.txt");
+		
+		if (file.is_open())
+		{
+			string line;
+			while (getline(file, line))
+			{
+				stringstream lines(line);
+				string word1, word2;
+				lines >> word1 >> word2;
+
+				sf::SoundBuffer* buffer = new sf::SoundBuffer;
+				buffer->loadFromFile(word2);
+				sf::Sound* sound = new sf::Sound;
+				sound->setBuffer(*buffer);
+
+				AddSound(word1, sound);
+			}
+		}
+	}
+
+	void SaveSound(std::string sound_name, std::string sound_file)
+	{
+		ofstream file("sounds.txt", std::ios::app);
+
+		if (file.is_open())
+		{
+			file << sound_name + " " + sound_file << endl;
+			file.close();
+		}
 	}
 }

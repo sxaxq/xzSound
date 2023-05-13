@@ -4,6 +4,8 @@
 #include <map>
 #include <string>
 #include <SFML/Audio.hpp>
+#include <fstream>
+#include <sstream>
 
 namespace SoundPad
 {
@@ -15,4 +17,6 @@ namespace SoundPad
 	void SoundPlay(std::string sound_name);
 	void DisplaySounds();
 	void DeleteSound(std::string sound_name);
+	void LoadSound();
+	void SaveSound(std::string sound_name, std::string sound_file);
 }
