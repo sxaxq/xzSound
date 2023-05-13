@@ -1,3 +1,4 @@
+[![CodeFactor](https://www.codefactor.io/repository/github/sxaxq/xzsound/badge)](https://www.codefactor.io/repository/github/sxaxq/xzsound)
 # SoundPad
 SoundPad - это консольное приложение, написанное на C++ с использованием библиотеки SFML Audio, которое позволяет проигрывать звуковые файлы.
 
