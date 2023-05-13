@@ -10,8 +10,10 @@
 namespace SoundPad
 {
 	extern std::map<std::string, sf::Sound*> smap;
+	extern std::map<unsigned, std::string> idmap;
 	extern std::istream& is;
 	extern std::ostream& os;
+	extern bool keyPadMode;
 
 	void AddSound(std::string sound_name, sf::Sound* sound);
 	void SoundPlay(std::string sound_name);

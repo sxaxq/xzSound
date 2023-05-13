@@ -5,12 +5,16 @@ using namespace std;
 namespace SoundPad
 {
 	map<string, sf::Sound*> smap;
+	map<unsigned, string> idmap;
 	ostream& os = cout;
 	istream& is = cin;
+	bool keyPadMode = false;
 
 	void AddSound(string sound_name, sf::Sound* sound)
 	{
 		smap[sound_name] = sound;
+		idmap[idmap.size() + 1] = sound_name;
+		os << "IDMap add " << sound_name << " id - " << idmap.size() << " / ";
 		os << "Sound added" << endl;
 		sf::sleep(sf::seconds(1.0f));
 	}
@@ -18,6 +22,8 @@ namespace SoundPad
 	void SoundPlay(string sound_name)
 	{
 		cout << "Playing - " << sound_name << endl;
+		smap[sound_name]->setPitch(1.0f);
+		smap[sound_name]->setVolume(70.0f);
 		smap[sound_name]->play();
 		sf::sleep(sf::seconds(5.0f));
 	}
