@@ -7,6 +7,7 @@
 void setTextColor(string text, int color);
 void UserHandleInput();
 void PrintMenu();
+void KeyModeHandle();
 
 int main()
 {
@@ -86,36 +87,41 @@ void UserHandleInput()
 
 	while (SoundPad::keyPadMode)
 	{
-		char ch = _getch();
-
-		switch (ch)
-		{
-		case '1':
-			SoundPad::SoundPlay(SoundPad::idmap[1]);
-			break;
-		case '2':
-			SoundPad::SoundPlay(SoundPad::idmap[2]);
-			break;
-		case '3':
-			SoundPad::SoundPlay(SoundPad::idmap[3]);
-			break;
-		case '4':
-			SoundPad::SoundPlay(SoundPad::idmap[4]);
-			break;
-		case '5':
-			SoundPad::SoundPlay(SoundPad::idmap[5]);
-			break;
-		case '6':
-			SoundPad::SoundPlay(SoundPad::idmap[6]);
-			break;
-		case 'q':
-			cout << "KeyPad Mode OFF" << endl;
-			SoundPad::keyPadMode = false;
-			break;
-		}
-		sf::sleep(sf::seconds(1.0f));
+		KeyModeHandle();
 	}
 	system("cls");
+}
+
+void KeyModeHandle()
+{
+	char ch = _getch();
+
+	switch (ch)
+	{
+	case '1':
+		SoundPad::SoundPlay(SoundPad::idmap[1]);
+		break;
+	case '2':
+		SoundPad::SoundPlay(SoundPad::idmap[2]);
+		break;
+	case '3':
+		SoundPad::SoundPlay(SoundPad::idmap[3]);
+		break;
+	case '4':
+		SoundPad::SoundPlay(SoundPad::idmap[4]);
+		break;
+	case '5':
+		SoundPad::SoundPlay(SoundPad::idmap[5]);
+		break;
+	case '6':
+		SoundPad::SoundPlay(SoundPad::idmap[6]);
+		break;
+	case 'q':
+		cout << "KeyPad Mode OFF" << endl;
+		SoundPad::keyPadMode = false;
+		break;
+	}
+	sf::sleep(sf::seconds(1.0f));
 }
 
 void PrintMenu()
